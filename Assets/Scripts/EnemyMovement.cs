@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         // Zoek de XR Rig met de tag "Player"
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Base");
         if (player != null)
         {
             playerTransform = player.transform;
@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         // Beweeg naar de positie van de speler als deze is gevonden
         if (playerTransform != null)
         {
+            agent.stoppingDistance = 5;
             agent.SetDestination(playerTransform.position);
         }
     }
